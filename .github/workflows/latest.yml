@@ -1,0 +1,52 @@
+name: LOL Skin Changer Auto Update
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "*/60 * * * *"
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Modify LOL Skin Changer Flow File
+        run: |
+          d='DATE '`date '+%Y-%m-%d %H:%M:%S'`
+          echo $d >> FLOW
+
+      - name: Commit changes to FLOW
+        run: |
+          git config --local user.email "lol-skin-changer-2024@gmail.com"
+          git config --local user.name "LOL Skin Changer 2024"
+          git add FLOW
+          
+          arr[0]="LOL Skin Changer Flow Updated"
+          arr[1]="Flow Log: LOL Skin Changer update"
+          arr[2]="System Check: LOL Skin Changer Flow"
+          arr[3]="LOL Skin Changer - flow refresh"
+          arr[4]="Update detected! Flow updated"
+          arr[5]="Skin Changer operation confirmed"
+          arr[6]="League of Legends Skin Changer: Flow updated"
+          arr[7]="Flow refreshed for LOL Skin Changer"
+          arr[8]="Update: LOL Skin Changer successful"
+          arr[9]="LOL Skin Changer running smoothly"
+
+          rand=$[$RANDOM % ${#arr[@]}]
+          
+          git commit -m "${arr[$rand]}"
+
+      - name: Push Changes to Repository
+        uses: ad-m/github-push-action@master
+        with:
+          force: true
+          directory: "."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
