@@ -18,6 +18,8 @@
 
 The League of Legends Skin Changer is safe, easy to use, and updated regularly to work seamlessly with the latest game patches. Perfect for players looking to **unlock all skins** and enhance their gaming experience.
 
+<img src="https://user-images.githubusercontent.com/58574988/134170370-c827d712-fcc7-432f-b9f8-96678b0c9bf6.gif">
+
 ---
 
 ## Features
